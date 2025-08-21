@@ -1,0 +1,5 @@
+<form method="POST"> {% csrf_token %}
+    <p>Никнейм: </p>{{ form.username }}
+    <p>Пароль: </p>{{ form.password }}
+    <button type="submit"> Войти </button>
+</form>

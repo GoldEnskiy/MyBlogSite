@@ -1,0 +1,25 @@
+<a href="{% url "post_new" %}">post_new</a> Профиль: <a href="{% url "account" username=request.user %}"> {% if request.user.is_authenticated  %} {{request.user}}  </a> <a href="{% url "logout" %}">Выйти</a> {% else %} <a href="{% url "login" %}">Войдите в систему</a> {% endif %}</p>
+
+{% if posts.len != 0 %}
+    {% for post in posts %}
+        {% if post.published_date %}
+
+            <p>published: {{ post.published_date }}</p>
+            <p>author: {{ post.author }}</p>
+            <p>title: <a href="{% url 'post_details' pk=post.pk %}">{{ post.title }}</a></p>
+            <p>text: {{ post.text }}</p>
+            <p>date: {{ post.created_date }}</p>
+            <br>
+
+            {% else %}
+
+            <p>published: Не опубликовано. </p>
+            <p>author: {{ post.author }}</p>
+            <p>title: {{ post.title }}. </a></p>
+            <p>text: скрыт. </p>
+            <p>date: скрыта. </p>
+            <br>
+            
+        {% endif %}
+    {% endfor %}
+{% endif %}
