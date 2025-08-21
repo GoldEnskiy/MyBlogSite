@@ -1,1 +1,1 @@
-БЭК ToDo List на django.
+БЭК Blog на django.
